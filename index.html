@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annuaire Employés Orange</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><span class="orange">Orange</span> Annuaire Employés</h1>
+    </header>
+
+    <main>
+      <section class="tools">
+        <input type="text" id="searchInput" placeholder="Rechercher par nom, email ou fonction">
+        <button id="exportCSV">Exporter CSV</button>
+      </section>
+
+      <section class="add-employee">
+        <h2 class="form-title">Ajouter / Modifier un employé</h2>
+        <form id="employeeForm">
+          <input type="hidden" id="editingId">
+          <div class="form-row">
+            <input type="text" id="lastName" placeholder="Nom*" required>
+            <input type="text" id="firstName" placeholder="Prénom*" required>
+          </div>
+          <div class="form-row">
+            <input type="email" id="email" placeholder="Email*" required>
+            <input type="text" id="position" placeholder="Poste/Fonction*" required>
+          </div>
+          <button type="submit" id="submitButton">Ajouter</button>
+          <p id="errorMsg" class="error"></p>
+        </form>
+      </section>
+
+      <section class="employee-list">
+        <h2>Liste des employés</h2>
+        <div class="table-container">
+          <table id="employeeTable">
+            <thead>
+              <tr>
+                <th>Nom Complet</th>
+                <th>Email</th>
+                <th>Fonction</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="employeeList"></tbody>
+          </table>
+          <p id="emptyListMsg">Aucun employé enregistré.</p>
+          <div class="pagination">
+            <button id="prevPage">Précédent</button>
+            <span id="pageInfo"></span>
+            <button id="nextPage">Suivant</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
